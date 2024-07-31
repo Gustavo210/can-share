@@ -1,10 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 export default function Home() {
   const shareOrDownload = async () => {
-    const blob = await fetch("/imagem.jpg").then((res) => res.blob());
+    const blob = await fetch("/video.mp4").then((res) => res.blob());
     const data = {
       files: [
-        new File([blob], "imagem.jpg", {
+        new File([blob], "/video.mp4", {
           type: blob.type,
         }),
       ],
@@ -25,7 +25,7 @@ export default function Home() {
     alert("Não foi possível compartilhar, tentando baixar");
     // Fallback
     const a = document.createElement("a");
-    a.download = "imagem.jpg";
+    a.download = "/video.mp4";
     a.style.display = "none";
     a.href = URL.createObjectURL(blob);
     a.addEventListener("click", () => {
